@@ -113,7 +113,15 @@ function Header() {
 								<MenuIcon />
 							</IconButton>
 						)}
-						<Typography variant="h6">LMS</Typography>
+						<Button
+							onClick={() => {
+								navigate("/");
+							}}
+							variant="text"
+							sx={{ color: "#fff" }}
+						>
+							<Typography variant="h6">LMS</Typography>
+						</Button>
 					</Box>
 
 					<Box

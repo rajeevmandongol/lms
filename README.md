@@ -19,11 +19,17 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/rajeevmandongol/lms
     ```
 
-2. Run the application
+2. Install the required dependencies for the project:
+    ```bash
+    npm install
+    ```
+3. Run the application
 
     ```bash
     npm run dev
     ```
+
+Access the React Application at http://127.0.0.1:5173
