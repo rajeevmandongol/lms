@@ -30,7 +30,7 @@ const Books = () => {
 
 	const [searchTerm, setSearchTerm] = useState("");
 
-	console.log(auth);
+	// console.log(auth);
 
 	const [keys, setKeys] = useState([]);
 
@@ -104,7 +104,7 @@ const Books = () => {
 				fetchData();
 			}
 
-			console.log("book del res : ", response);
+			// console.log("book del res : ", response);
 		} catch (e) {
 			console.error(e);
 		}
@@ -174,7 +174,7 @@ const Books = () => {
 														fontSize: "0.7rem",
 													}}
 													onClick={() => {
-														console.log(row?._id);
+														// console.log(row?._id);
 														navigate(
 															`/issue-book/${row?._id}`,
 															{

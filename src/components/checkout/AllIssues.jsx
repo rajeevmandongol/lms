@@ -25,7 +25,7 @@ const AllIssues = () => {
 	const [data, setData] = useState(null);
 	const navigate = useNavigate();
 
-	console.log(auth);
+	// console.log(auth);
 
 	// const [keys, setKeys] = useState([]);
 
@@ -83,7 +83,7 @@ const AllIssues = () => {
 				authConfig
 			);
 
-			console.log("User delete response : ", response);
+			// console.log("User delete response : ", response);
 
 			if (response?.status === 201) {
 				displaySuccess("Deleted Successfully");

@@ -46,7 +46,7 @@ const AddBook = () => {
 				file: selectedFile,
 			};
 
-			console.log("form", formData);
+			// console.log("form", formData);
 
 			const response = await axios.post(config.addBookURL, formData, {
 				headers: {

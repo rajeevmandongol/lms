@@ -1,6 +1,8 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export const Homepage = () => {
+	const navigate = useNavigate();
 	return (
 		<Box
 			sx={{
@@ -53,6 +55,74 @@ export const Homepage = () => {
 						Developed by Rajeev Man Dongol, Sandeep Gautam, Saurya
 						Paudel
 					</Typography>
+				</Stack>
+
+				<Stack
+					sx={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "center",
+						alignItems: "center",
+						columnGap: "8px",
+						mt: 4,
+					}}
+				>
+					<Button
+						size="small"
+						color="primary"
+						variant="contained"
+						onClick={() => navigate("/add-user")}
+						sx={{
+							// color: "#fff",
+							"&:hover": {
+								textDecoration: "underline",
+							},
+						}}
+					>
+						Add User
+					</Button>
+					<Button
+						size="small"
+						color="primary"
+						variant="contained"
+						onClick={() => navigate("/all-users")}
+						sx={{
+							// color: "#fff",
+							"&:hover": {
+								textDecoration: "underline",
+							},
+						}}
+					>
+						Users
+					</Button>
+					<Button
+						size="small"
+						color="primary"
+						variant="contained"
+						onClick={() => navigate("/all-books")}
+						sx={{
+							// color: "#fff",
+							"&:hover": {
+								textDecoration: "underline",
+							},
+						}}
+					>
+						Books
+					</Button>
+					<Button
+						size="small"
+						color="primary"
+						variant="contained"
+						onClick={() => navigate("/all-issues")}
+						sx={{
+							// color: "#fff",
+							"&:hover": {
+								textDecoration: "underline",
+							},
+						}}
+					>
+						Issues
+					</Button>
 				</Stack>
 			</Box>
 		</Box>

@@ -3,7 +3,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useContext, useState } from "react";
 import config from "../config";
-import { displaySuccess } from "../helper/toastHelper";
+import { displayError, displaySuccess } from "../helper/toastHelper";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
@@ -22,42 +22,54 @@ const Login = () => {
 	const handleLogin = async (event) => {
 		event.preventDefault();
 
-		if (!email || !password) {
-			alert("Enter username and password properly");
-			return;
-		}
-
-		const response = await axios.post(
-			config.loginURL,
-			{
-				email: email,
-				password: password,
-			},
-			{
-				headers: {
-					"Content-Type": "application/json",
-				},
+		try {
+			if (!email || !password) {
+				alert("Enter username and password properly");
+				return;
 			}
-		);
-		if (response.status === 201) {
-			displaySuccess("Login Successful");
-			// const token = response.data.token;
 
-			const email = response?.data?.data?.email;
-			const accessToken = response?.data?.data?.accessToken;
-			const refreshToken = response?.data?.data?.refreshToken;
-			const tokenDecoded = jwtDecode(refreshToken);
-			// const roles = response?.data?.data?.roles;
-			console.log("tokenDecoded : ", tokenDecoded);
-			setAuth({ email, role: tokenDecoded?.role, accessToken });
+			const response = await axios.post(
+				config.loginURL,
+				{
+					email: email,
+					password: password,
+				},
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+			if (response.status === 201) {
+				displaySuccess("Login Successful");
+				// const token = response.data.token;
 
-			localStorage.setItem("token", JSON.stringify(response?.data?.data));
+				const email = response?.data?.data?.email;
+				const accessToken = response?.data?.data?.accessToken;
+				const refreshToken = response?.data?.data?.refreshToken;
+				const tokenDecoded = jwtDecode(refreshToken);
+				// const roles = response?.data?.data?.roles;
+				// console.log("tokenDecoded : ", tokenDecoded);
+				setAuth({ email, role: tokenDecoded?.role, accessToken });
 
-			// return;
+				localStorage.setItem(
+					"token",
+					JSON.stringify(response?.data?.data)
+				);
 
-			navigate("/");
+				// return;
+
+				navigate("/");
+			} else if (response.status === 500) {
+				displayError("Email or password incorrect!");
+			}
+		} catch (error) {
+			if (error?.response?.data?.statusCode === 500) {
+				displayError("Email or password incorrect!");
+			}
+			console.log(error);
 		}
-		console.log("login res : ", response);
+		// console.log("login res : ", response);
 	};
 
 	return (

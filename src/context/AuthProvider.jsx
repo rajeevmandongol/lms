@@ -12,14 +12,14 @@ export const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (token) {
-			console.log("Token Found");
-			console.log("token : ", token);
+			// console.log("Token Found");
+			// console.log("token : ", token);
 
 			const localToken = JSON.parse(token);
 
 			const tokenDecoded = jwtDecode(localToken.refreshToken);
 			// const roles = response?.data?.data?.roles;
-			console.log("tokenDecoded : ", tokenDecoded);
+			// console.log("tokenDecoded : ", tokenDecoded);
 			setAuth(() => {
 				return {
 					email: tokenDecoded?.email,
@@ -28,9 +28,9 @@ export const AuthProvider = ({ children }) => {
 				};
 			});
 
-			console.log("new auth", auth);
+			// console.log("new auth", auth);
 		} else {
-			console.log("No token");
+			// console.log("No token");
 		}
 	}, []);
 

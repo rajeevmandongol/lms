@@ -102,15 +102,17 @@ function Header() {
 							alignItems: "center",
 						}}
 					>
-						<IconButton
-							edge="start"
-							color="inherit"
-							aria-label="menu"
-							onClick={toggleDrawer(true)}
-							sx={{ mr: 2 }}
-						>
-							<MenuIcon />
-						</IconButton>
+						{false && (
+							<IconButton
+								edge="start"
+								color="inherit"
+								aria-label="menu"
+								onClick={toggleDrawer(true)}
+								sx={{ mr: 2 }}
+							>
+								<MenuIcon />
+							</IconButton>
+						)}
 						<Typography variant="h6">LMS</Typography>
 					</Box>
 

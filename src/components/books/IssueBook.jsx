@@ -14,6 +14,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../context/AuthProvider";
 import config from "../../config";
+import { displayError, displaySuccess } from "../../helper/toastHelper";
 
 const IssueBook = () => {
 	const { id } = useParams();
@@ -42,7 +43,7 @@ const IssueBook = () => {
 					},
 				});
 
-				console.log("res user : ", response);
+				// console.log("res user : ", response);
 
 				setUsers(() => response?.data?.data);
 			} catch (e) {
@@ -77,8 +78,13 @@ const IssueBook = () => {
 				}
 			);
 
-			console.log("Checkout ", response);
+			if (response?.status === 201) {
+				displaySuccess("Book Issued Successfully");
+				navigate("/all-issues");
+			}
+			// console.log("Checkout ", response);
 		} catch (e) {
+			displayError("Something went wrong");
 			console.error(e);
 		}
 	};
@@ -111,9 +117,7 @@ const IssueBook = () => {
 							size="small"
 							color="primary"
 							variant="contained"
-							onClick={() =>
-								navigate("/all-books")
-							}
+							onClick={() => navigate("/all-books")}
 						>
 							View All Books
 						</Button>
