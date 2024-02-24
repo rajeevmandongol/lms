@@ -61,6 +61,11 @@ const IssueBook = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+
+		if (!user || !expiry) {
+			alert("Enter details properly");
+			return;
+		}
 		try {
 			const postData = {
 				book: id,

@@ -23,7 +23,7 @@ const AddUser = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
-		if (!email || !password) {
+		if (!name || !email || !password) {
 			alert("Enter username and password properly");
 			return;
 		}
