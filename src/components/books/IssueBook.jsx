@@ -63,7 +63,7 @@ const IssueBook = () => {
 		event.preventDefault();
 
 		if (!user || !expiry) {
-			alert("Enter details properly");
+			alert("Enter details properly!");
 			return;
 		}
 		try {

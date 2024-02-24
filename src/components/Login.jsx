@@ -24,7 +24,7 @@ const Login = () => {
 
 		try {
 			if (!email || !password) {
-				alert("Enter username and password properly");
+				alert("Enter email and password properly!");
 				return;
 			}
 

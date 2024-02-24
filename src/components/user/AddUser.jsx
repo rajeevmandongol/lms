@@ -24,7 +24,7 @@ const AddUser = () => {
 		event.preventDefault();
 
 		if (!name || !email || !password) {
-			alert("Enter username and password properly");
+			alert("Enter details properly!");
 			return;
 		}
 
