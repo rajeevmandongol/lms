@@ -32,4 +32,4 @@ Before you begin, ensure you have met the following requirements:
     npm run dev
     ```
 
-Access the React Application at http://127.0.0.1:5173
+Access the React Application at http://localhost:5173
